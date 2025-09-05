@@ -1,0 +1,37 @@
+{
+  "name": "collabfs",
+  "version": "1.0.0",
+  "description": "CLI client for CollabFS real-time folder sync",
+  "bin": {
+    "collab": "bin/cli.js"
+  },
+  "main": "src/index.js",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kashish-naresh/collabfs.git"
+  },
+  "author": "Kashish Chaudhary <kashishch888@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "collaboration",
+    "filesync",
+    "realtime",
+    "socket.io"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "commander": "^11.1.0",
+    "dotenv": "^16.4.5",
+    "ignore": "^5.3.1",
+    "mkdirp": "^3.0.1",
+    "nanoid": "^5.0.7",
+    "normalize-path": "^3.0.0",
+    "socket.io-client": "^4.7.5",
+    "strip-ansi": "^7.1.0"
+  }
+}
