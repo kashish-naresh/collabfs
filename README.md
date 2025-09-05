@@ -1,5 +1,5 @@
 # collabfs
-<<<<<<< HEAD
+
 
 ## collabfs@1.0.0
 
@@ -7,14 +7,12 @@
 
 # for all over Internet
 
-## collab start --name Alice --server https://collabfs-central-server.onrender.com
+- collab start --name Alice --server https://collabfs-central-server.onrender.com
 
-## collab join --session ced840b7-c752-4cd4-9a5e-a7b149c91116 --name Bob --server https://collabfs-central-server.onrender.com
+- collab join --session ced840b7-c752-4cd4-9a5e-a7b149c91116 --name Bob --server https://collabfs-central-server.onrender.com
 
 # for LocalUse
 
-## collab start --name Alice
+- collab start --name Alice
 
-## collab join --session <session-id> --name Bob
-=======
->>>>>>> f98bdaf55e58180ebf5afc40602d95965767ee03
+- collab join --session <session-id> --name Bob
