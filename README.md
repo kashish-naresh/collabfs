@@ -1,4 +1,5 @@
 # collabfs
+<<<<<<< HEAD
 
 ## collabfs@1.0.0
 
@@ -15,3 +16,5 @@
 ## collab start --name Alice
 
 ## collab join --session <session-id> --name Bob
+=======
+>>>>>>> f98bdaf55e58180ebf5afc40602d95965767ee03
