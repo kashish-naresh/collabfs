@@ -3,7 +3,7 @@
 
 ## collabfs@1.0.0
 
-- `npm install -g collab-cli`
+- `npm install -g collabfs`
 
 ## for all over Internet
 
