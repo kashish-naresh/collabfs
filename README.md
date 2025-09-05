@@ -9,7 +9,7 @@
 
 - collab start --name Alice --server https://collabfs-central-server.onrender.com
 
-- collab join --session ced840b7-c752-4cd4-9a5e-a7b149c91116 --name Bob --server https://collabfs-central-server.onrender.com
+- collab join --session <session-ID> --name Bob --server https://collabfs-central-server.onrender.com
 
 ## for LocalUse
 
