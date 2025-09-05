@@ -9,7 +9,9 @@
 
 - `collab start --name Alice --server https://collabfs-central-server.onrender.com`
 
-- `collab join --session __session-ID__ --name Bob --server https://collabfs-central-server.onrender.com`
+- `collab join --session <___session-ID___> --name Bob --server https://collabfs-central-server.onrender.com`
+
+-  Like - `collab join --session efrgnhfefgfnh43546423retg --name Bob --server https://collabfs-central-server.onrender.com`
 
 ## for LocalUse
 
