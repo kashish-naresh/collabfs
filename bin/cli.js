@@ -18,7 +18,11 @@ program
   .alias("s")
   .description("Start a new collaboration session in the current folder")
   .option("-n, --name <displayName>", "Display name to show to others")
-  .option("--server <url>", "Server URL to connect to", "http://localhost:4000") // 👈 add default
+  .option(
+    "--server [url]",
+    "Server URL to connect to",
+    "https://collabfs-central-server.onrender.com"
+  ) // 👈 add default
   .action(async (opts) => {
     try {
       await startClient("start", opts);
@@ -35,7 +39,11 @@ program
   .argument("[sessionId]", "Session ID to join")
   .option("-s, --session <id>", "Session ID to join")
   .option("-n, --name <displayName>", "Display name")
-  .option("--server <url>", "Server URL to connect to", "http://localhost:4000") // 👈 add here too
+  .option(
+    "--server [url]",
+    "Server URL to connect to",
+    "https://collabfs-central-server.onrender.com"
+  ) // 👈 add here too
   .action(async (sessionId, opts) => {
     const id = opts.session || sessionId;
     if (!id) {
