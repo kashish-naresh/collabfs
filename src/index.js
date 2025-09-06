@@ -39,7 +39,9 @@ async function startClient(mode, opts = {}) {
 
   // 👇 pick server from opts, fallback to env or localhost
   const serverUrl =
-    process.env.COLLAB_SERVER || opts.server || "http://localhost:4000";
+    process.env.COLLAB_SERVER ||
+    opts.server ||
+    "https://collabfs-central-server.onrender.com";
 
   // connect to signaling server
   const socket = await connectSocket(serverUrl, sessionState.displayName);
