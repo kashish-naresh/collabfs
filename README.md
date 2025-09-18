@@ -4,7 +4,7 @@
 
 > > > > > > > 504b62196865a7064b79149d248077f2652ee07f
 
-## collabfs@1.0.0
+## collabfs@1.0.1
 
 - `npm install -g collabfs`
 
@@ -18,7 +18,7 @@
 
 ## collab join --session <session-id> --name Bob
 
-- # **Release** - https://github.com/kashish-naresh/collabfs/releases/tag/v1.0.0
+=======
 
 ## for all over Internet
 
