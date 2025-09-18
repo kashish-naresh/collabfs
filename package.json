@@ -1,6 +1,6 @@
 {
   "name": "collabfs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI client for CollabFS real-time folder sync",
   "bin": {
     "collab": "bin/cli.js"
