@@ -6,7 +6,7 @@
 
 # for all over Internet
 
-## collab start --name Alice
+ `collab start --name Alice`
 
-## collab join --session <session-id> --name Bob
+ `collab join --session <session-id> --name Bob`
 
