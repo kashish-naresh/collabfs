@@ -5,7 +5,7 @@
     "role": "owner",
     "name": "Kashish Chaudhary",
     "email": "kashishch888@gmail.com",
-    "phone": "+91 8882279852",
+    "phone": "91-8882279852",
     "description": "I am aspiring software engineer and open source contributor solving real problems.",
     "webpageUrl": {
       "url": "https://iankashish.vercel.app"
@@ -26,25 +26,24 @@
         "spdx:MIT"
       ],
       "tags": [
-        "real-time collaboration",
-        "developer tools",
-        "version control",
+        "real-time-collaboration",
+        "developer-tools",
+        "version-control",
         "sync",
         "open-source",
-        "file synchronization",
-        "team collaboration",
-        "software development",
-        "command line",
+        "file-synchronization",
+        "team-collaboration",
+        "software-development",
+        "command-line",
         "productivity"
       ]
     },
     {
       "guid": "livepad",
       "name": "livepad",
-      "description": "In today’s world, the phrase \"Can you see my screen?\" has become a dreaded catchphrase in remote meetings. Screen sharing issues, lag, and technical hiccups often disrupt collaboration, wasting precious time and draining productivity. But what if there was a better way to collaborate live in real-time, without the need for screen sharing, downloads, or endless refreshes?\n\nEnter LivePad® — a powerful, zero-setup, real-time collaborative editor that allows you to work together with anyone, anywhere, instantly. Whether you're brainstorming, coding, or working on a document, LivePad® removes the friction from remote collaboration. All you need is a link, and you’re ready to start editing with your team in real-time.\n\nKey Features:\n🔹 Instant Collaboration: Create a session in seconds with a custom URL or auto-generated link.\n🔹 Live Editing: See changes made by others in real-time, ensuring smooth, synchronized collaboration.\n🔹 Zero Setup: No logins, no downloads, and no complicated installs. Just open the link and start working.\n🔹 Built for Developers: LivePad® is built on modern technologies like React, Express, and Socket.io, delivering both power and ease of use.\n🔹 Seamless Experience: Perfect for team meetings, live code reviews, collaborative writing, and educational purposes.\n🔹 No More Delays: Skip the \"refresh\" and \"Can you see my screen?\" moments—focus on what really matters.\n\nWhy LivePad®?\nLivePad® is designed for developers, educators, startup founders, and anyone who needs a quick, seamless way to work together on the same file. It eliminates the need for screen sharing and replaces the hassle of switching between multiple tools, ensuring that you can focus on actual work instead of navigating technical barriers. Whether you're writing code, brainstorming ideas, or collaborating on a presentation, LivePad® offers an intuitive and immediate solution.\n\nSo, no more wasting time troubleshooting. Simply click on a link and start collaborating—it's that easy!",
+      "description": "In remote meetings, the phrase 'Can you see my screen?' has become a dreaded catchphrase. Screen sharing issues, lag, and technical hiccups disrupt collaboration, wasting time and draining productivity. But what if there was a better way? Introducing LivePad®—a zero-setup, real-time collaborative editor that lets you work with anyone, anywhere, instantly. Whether you're brainstorming, coding, or writing, LivePad® makes remote collaboration seamless. Just open a link and start working together.",
       "webpageUrl": {
-        "url": "https://livepad-rwvk.onrender.com/",
-        "wellKnown": "https://github.com/kashish-naresh/LIVEPAD/blob/main/README.md"
+        "url": "https://github.com/kashish-naresh/LIVEPAD/blob/main/README.md"
       },
       "repositoryUrl": {
         "url": "https://github.com/kashish-naresh/LIVEPAD"
@@ -53,16 +52,16 @@
         "spdx:MIT"
       ],
       "tags": [
-        "real-time collaboration",
-        "productivity tools",
-        "live editing",
-        "developer tools",
-        "remote work",
-        "team collaboration",
-        "web development",
-        "SaaS",
-        "startup tools",
-        "ReactJS"
+        "real-time-collaboration",
+        "productivity-tools",
+        "live-editing",
+        "developer-tools",
+        "remote-work",
+        "team-collaboration",
+        "web-development",
+        "saas",
+        "startup-tools",
+        "reactjs"
       ]
     }
   ],
@@ -71,17 +70,20 @@
       {
         "guid": "kashish-foss-bank",
         "type": "bank",
-        "address": "Account : 0412100100001121 (IFSC : PUNB0041210)"
+        "address": "Account : 0412100100001121 (IFSC : PUNB0041210)",
+        "description": ""
       },
       {
         "guid": "kashish-foss-cheque",
         "type": "cheque",
-        "address": "(name : Kashish Chaudhary), (gali no2, 5no.bhatta road, ghari, rajnagar extension, ghaziabad, UP, 201017)"
+        "address": "(name : Kashish Chaudhary), (gali no2, 5no.bhatta road, ghari, rajnagar extension, ghaziabad, UP, 201017)",
+        "description": ""
       },
       {
         "guid": "kashish-foss-cash",
         "type": "cash",
-        "address": "gali no2, 5no.bhatta road, ghari, rajnagar extension, ghaziabad, UP, 201017"
+        "address": "gali no2, 5no.bhatta road, ghari, rajnagar extension, ghaziabad, UP, 201017",
+        "description": ""
       },
       {
         "guid": "kashish-foss-upi",
@@ -95,6 +97,7 @@
         "guid": "collabfs-fund",
         "status": "active",
         "name": "collabfs-fund",
+        "description": "",
         "amount": 0,
         "currency": "INR",
         "frequency": "monthly",
@@ -109,6 +112,7 @@
         "guid": "livepad-fund",
         "status": "active",
         "name": "livepad-fund",
+        "description": "",
         "amount": 0,
         "currency": "INR",
         "frequency": "monthly",
@@ -123,8 +127,11 @@
     "history": [
       {
         "year": 2025,
+        "income": 0,
         "expenses": 200000,
-        "currency": "INR"
+        "taxes": 0,
+        "currency": "INR",
+        "description": ""
       }
     ]
   }
