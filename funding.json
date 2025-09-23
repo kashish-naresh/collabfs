@@ -1,0 +1,131 @@
+{
+  "version": "v1.0.0",
+  "entity": {
+    "type": "individual",
+    "role": "owner",
+    "name": "Kashish Chaudhary",
+    "email": "kashishch888@gmail.com",
+    "phone": "+91 8882279852",
+    "description": "I am aspiring software engineer and open source contributor solving real problems.",
+    "webpageUrl": {
+      "url": "https://iankashish.vercel.app"
+    }
+  },
+  "projects": [
+    {
+      "guid": "collab-fs",
+      "name": "CollabFS",
+      "description": "Picture this: You’re part of a developers’ team, working on a project. Every time someone makes an update — a new feature, a bug fix, a design tweak — they zip the entire project folder and blast it out on the team chat. Your inbox is flooded with project_final_v2_new_final_REALLYFINAL.zip files. It’s chaotic, time-consuming, and a nightmare for version control. You waste precious minutes downloading, extracting, and manually comparing changes instead of actually coding.\n\nIf this sounds familiar, you’re not alone. This antiquated method of “collaboration” is still surprisingly common, creating bottlenecks and frustration.\n\nThe Solution: Real-Time Sync with CollabFS\nTo solve this exact problem, I built CollabFS (Collaborative File System). CollabFS is an open-source package that allows developers to sync an entire project folder in real-time across multiple machines. No more zipping. No more emailing. Just seamless, instant synchronization.\n\nImagine Google Drive for developers, but faster, folder-based, and running directly from your command line. When one team member saves a file, everyone else in the session sees the change instantly.\n\nWhat is CollabFS?\nCollabFS is a powerful, lightweight tool built on a modern tech stack:\n\nBackend: Node.js & Express.js\nReal-Time Communication: Socket.IO\nCentral Server: Hosted on Render for global accessibility\nIt’s designed to be simple to use. You install it once, and with two simple commands, you’re sharing a live, synced workspace with your entire team, regardless of their physical location.",
+      "webpageUrl": {
+        "url": "https://github.com/kashish-naresh/collabfs/blob/main/README.md"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/kashish-naresh/collabfs"
+      },
+      "licenses": [
+        "spdx:MIT"
+      ],
+      "tags": [
+        "real-time collaboration",
+        "developer tools",
+        "version control",
+        "sync",
+        "open-source",
+        "file synchronization",
+        "team collaboration",
+        "software development",
+        "command line",
+        "productivity"
+      ]
+    },
+    {
+      "guid": "livepad",
+      "name": "livepad",
+      "description": "In today’s world, the phrase \"Can you see my screen?\" has become a dreaded catchphrase in remote meetings. Screen sharing issues, lag, and technical hiccups often disrupt collaboration, wasting precious time and draining productivity. But what if there was a better way to collaborate live in real-time, without the need for screen sharing, downloads, or endless refreshes?\n\nEnter LivePad® — a powerful, zero-setup, real-time collaborative editor that allows you to work together with anyone, anywhere, instantly. Whether you're brainstorming, coding, or working on a document, LivePad® removes the friction from remote collaboration. All you need is a link, and you’re ready to start editing with your team in real-time.\n\nKey Features:\n🔹 Instant Collaboration: Create a session in seconds with a custom URL or auto-generated link.\n🔹 Live Editing: See changes made by others in real-time, ensuring smooth, synchronized collaboration.\n🔹 Zero Setup: No logins, no downloads, and no complicated installs. Just open the link and start working.\n🔹 Built for Developers: LivePad® is built on modern technologies like React, Express, and Socket.io, delivering both power and ease of use.\n🔹 Seamless Experience: Perfect for team meetings, live code reviews, collaborative writing, and educational purposes.\n🔹 No More Delays: Skip the \"refresh\" and \"Can you see my screen?\" moments—focus on what really matters.\n\nWhy LivePad®?\nLivePad® is designed for developers, educators, startup founders, and anyone who needs a quick, seamless way to work together on the same file. It eliminates the need for screen sharing and replaces the hassle of switching between multiple tools, ensuring that you can focus on actual work instead of navigating technical barriers. Whether you're writing code, brainstorming ideas, or collaborating on a presentation, LivePad® offers an intuitive and immediate solution.\n\nSo, no more wasting time troubleshooting. Simply click on a link and start collaborating—it's that easy!",
+      "webpageUrl": {
+        "url": "https://livepad-rwvk.onrender.com/",
+        "wellKnown": "https://github.com/kashish-naresh/LIVEPAD/blob/main/README.md"
+      },
+      "repositoryUrl": {
+        "url": "https://github.com/kashish-naresh/LIVEPAD"
+      },
+      "licenses": [
+        "spdx:MIT"
+      ],
+      "tags": [
+        "real-time collaboration",
+        "productivity tools",
+        "live editing",
+        "developer tools",
+        "remote work",
+        "team collaboration",
+        "web development",
+        "SaaS",
+        "startup tools",
+        "ReactJS"
+      ]
+    }
+  ],
+  "funding": {
+    "channels": [
+      {
+        "guid": "kashish-foss-bank",
+        "type": "bank",
+        "address": "Account : 0412100100001121 (IFSC : PUNB0041210)"
+      },
+      {
+        "guid": "kashish-foss-cheque",
+        "type": "cheque",
+        "address": "(name : Kashish Chaudhary), (gali no2, 5no.bhatta road, ghari, rajnagar extension, ghaziabad, UP, 201017)"
+      },
+      {
+        "guid": "kashish-foss-cash",
+        "type": "cash",
+        "address": "gali no2, 5no.bhatta road, ghari, rajnagar extension, ghaziabad, UP, 201017"
+      },
+      {
+        "guid": "kashish-foss-upi",
+        "type": "other",
+        "address": "upi : 8882279852@ptyes",
+        "description": "PNB bank account,\nname : Kashish Chaudhary"
+      }
+    ],
+    "plans": [
+      {
+        "guid": "collabfs-fund",
+        "status": "active",
+        "name": "collabfs-fund",
+        "amount": 0,
+        "currency": "INR",
+        "frequency": "monthly",
+        "channels": [
+          "kashish-foss-bank",
+          "kashish-foss-cheque",
+          "kashish-foss-cash",
+          "kashish-foss-upi"
+        ]
+      },
+      {
+        "guid": "livepad-fund",
+        "status": "active",
+        "name": "livepad-fund",
+        "amount": 0,
+        "currency": "INR",
+        "frequency": "monthly",
+        "channels": [
+          "kashish-foss-bank",
+          "kashish-foss-cheque",
+          "kashish-foss-cash",
+          "kashish-foss-upi"
+        ]
+      }
+    ],
+    "history": [
+      {
+        "year": 2025,
+        "expenses": 200000,
+        "currency": "INR"
+      }
+    ]
+  }
+}
