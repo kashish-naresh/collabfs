@@ -1,36 +1,15 @@
-# collabfs
-
-# <<<<<<< HEAD
-
-> > > > > > > 504b62196865a7064b79149d248077f2652ee07f
-
-## collabfs@1.0.0
-
-- `npm install -g collabfs`
-
-<<<<<<< HEAD
-
-- https://collabfs-central-server.onrender.com
-
-# for all over Internet
+# to run
 
 ## collab start --name Alice
 
-## collab join --session <session-id> --name Bob
+## collab join --session <session-ID> --name Bob
 
-- # **Release** - https://github.com/kashish-naresh/collabfs/releases/tag/v1.0.0
+# For working with local server -------- for testing purpose
 
-## for all over Internet
+npm start ------ in client-server
 
-- `collab start --name Alice --server https://collabfs-central-server.onrender.com`
+npm link ----- in client-cli fro frist time only
 
-- `collab join --session <___session-ID___> --name Bob --server https://collabfs-central-server.onrender.com`
+collab start -n user1 --server http://localhost:4000
 
-- Like - `collab join --session efrgnhfefgfnh43546423retg --name Bob --server https://collabfs-central-server.onrender.com`
-
-## for LocalUse
-
-- `collab start --name Alice`
-
-- `collab join --session <session-id> --name Bob`
-  > > > > > > > 504b62196865a7064b79149d248077f2652ee07f
+collab join bf0b824f-10ea-40dd-be3a-cd2db8863b8e -n user2 --server http://localhost:4000
