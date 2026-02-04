@@ -1,3 +1,5 @@
+// client-cli/src/syncHandler.js
+
 const fs = require("fs");
 const path = require("path");
 const { logger } = require("./utils/logger");
@@ -32,15 +34,12 @@ async function handleRemoteChange(data, baseDir) {
 
         // Safe handling of null content
         if (data.content !== null && data.content !== undefined) {
-          // Only write buffer if content exists
-          if (data.encoding === "base64") {
-            fs.writeFileSync(targetPath, Buffer.from(data.content, "base64"));
-          } else {
-            fs.writeFileSync(targetPath, data.content, "utf8");
-          }
+          const buffer = Buffer.from(data.content, "base64");
+
+          fs.writeFileSync(targetPath, buffer);
         } else {
-          // content null => empty file, create empty
-          fs.writeFileSync(targetPath, "");
+          // empty file
+          fs.writeFileSync(targetPath, Buffer.alloc(0));
         }
 
         logger.info(`[sync] Applied ${data.type} on ${data.path}`);
@@ -72,7 +71,7 @@ async function handleRemoteChange(data, baseDir) {
     }
   } catch (err) {
     logger.error(
-      `[sync] Error applying change to ${data.path}: ${err.message}`
+      `[sync] Error applying change to ${data.path}: ${err.message}`,
     );
   }
 }

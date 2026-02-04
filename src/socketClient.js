@@ -2,6 +2,8 @@
  * socketClient.js
  * Handles Socket.IO client connection
  */
+// client-cli/src/socketClient.js
+
 const { io } = require("socket.io-client");
 const { logger } = require("./utils/logger");
 const config = require("../collab.config");
@@ -14,6 +16,7 @@ function connectSocket(serverUrl, displayName) {
       auth: { name: displayName },
       reconnectionAttempts: 5,
       transports: ["websocket"],
+      maxHttpBufferSize: 1e9,
     });
 
     socket.on("connect", () => {

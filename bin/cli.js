@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+// client-cli/bin/cli.js
 const { Command } = require("commander");
 const pkg = require("../package.json");
 const { startClient } = require("../src/index");
@@ -10,8 +10,7 @@ const program = new Command();
 program
   .name("collab")
   .description("CollabFS: Real-time collaborative filesystem sync")
-  .version(pkg.version)
-  .helpOption("-h, --help", "Display help for command");
+  .version(pkg.version);
 
 // --- Start a new session ---
 program
@@ -22,7 +21,7 @@ program
   .option(
     "--server [url]",
     "Server URL to connect to",
-    "https://collabfs-central-server.onrender.com"
+    "https://collabfs-central-server.onrender.com",
   ) // 👈 add default
   .action(async (opts) => {
     try {
@@ -43,7 +42,7 @@ program
   .option(
     "--server [url]",
     "Server URL to connect to",
-    "https://collabfs-central-server.onrender.com"
+    "https://collabfs-central-server.onrender.com",
   ) // 👈 add here too
   .action(async (sessionId, opts) => {
     const id = opts.session || sessionId;
@@ -59,21 +58,8 @@ program
     }
   });
 
-if (process.argv.length === 2) {
-  console.log(`
-Usage: collab [options] [command]
+program.parse(process.argv);
 
-CollabFS: Real-time collaborative filesystem sync
-
-Options:
-  -V, --version               output the version number
-  -h, --help                  Display help for command
-
-Commands:
-  start|s [options]           Start a new collaboration session
-  join [options] [sessionId]  Join an existing collaboration session
-  `);
-  process.exit(0);
-} else {
-  program.parse(process.argv);
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
 }

@@ -1,4 +1,6 @@
 // Future: plug-in conflict resolver(s). For now LWW used by syncHandler.
+// client-cli/src/conflictResolver.js
+
 module.exports = {
   // Example interface: resolve(localContent, remoteContent) => { winner: 'local' | 'remote', mergedContent }
   resolve: (localContent, remoteContent) => ({

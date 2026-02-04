@@ -1,3 +1,5 @@
+// client-cli/src/fileWatcher.js
+
 const chokidar = require("chokidar");
 const fs = require("fs");
 const path = require("path");
@@ -52,7 +54,7 @@ function watchFiles(baseDir, socket, sessionId) {
 
     const relPath = path.relative(baseDir, filePath);
     let content = null;
-    let encoding = null;
+    let encoding = "base64";
 
     if (isDir) {
       // Only emit if directory is truly empty
@@ -60,13 +62,9 @@ function watchFiles(baseDir, socket, sessionId) {
     } else if (type === "add" || type === "change") {
       try {
         const buffer = fs.readFileSync(filePath);
-        if (/^[\x00-\x7F]*$/.test(buffer.toString("utf8"))) {
-          content = buffer.toString("utf8");
-          encoding = "utf8";
-        } else {
-          content = buffer.toString("base64");
-          encoding = "base64";
-        }
+
+        content = buffer.toString("base64");
+        encoding = "base64";
       } catch (e) {
         logger.error(`[watcher] Failed to read file ${filePath}: ${e.message}`);
       }
@@ -77,11 +75,10 @@ function watchFiles(baseDir, socket, sessionId) {
       type: isDir ? "addDir" : type,
       path: relPath,
       content,
-      encoding,
     });
 
     logger.info(
-      `[watcher] Emitted ${isDir ? "Dir" : "File"} ${type}: ${relPath}`
+      `[watcher] Emitted ${isDir ? "Dir" : "File"} ${type}: ${relPath}`,
     );
   }
 
@@ -95,4 +92,42 @@ function watchFiles(baseDir, socket, sessionId) {
   return watcher;
 }
 
-module.exports = { watchFiles, markIgnore, shouldIgnore };
+function sendInitialFiles(baseDir, socket, sessionId) {
+  function walk(dir) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      const relPath = path.relative(baseDir, fullPath);
+
+      // Skip ignored folders
+      if (relPath.includes("node_modules") || relPath.startsWith(".git")) {
+        continue;
+      }
+
+      if (entry.isDirectory()) {
+        socket.emit("file-change", {
+          sessionId,
+          type: "addDir",
+          path: relPath,
+          content: null,
+        });
+
+        walk(fullPath);
+      } else {
+        const buffer = fs.readFileSync(fullPath);
+
+        socket.emit("file-change", {
+          sessionId,
+          type: "add",
+          path: relPath,
+          content: buffer.toString("base64"),
+        });
+      }
+    }
+  }
+
+  walk(baseDir);
+}
+
+module.exports = { watchFiles, markIgnore, shouldIgnore, sendInitialFiles };

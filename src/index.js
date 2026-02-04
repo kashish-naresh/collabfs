@@ -3,12 +3,14 @@
  * Called by bin/cli.js with a mode: "start" | "join"
  */
 
+// client-cli/src/index.js
+
 const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const { logger } = require("./utils/logger");
 const { connectSocket } = require("./socketClient");
-const { watchFiles } = require("./fileWatcher");
+const { watchFiles, sendInitialFiles } = require("./fileWatcher");
 const { handleRemoteChange } = require("./syncHandler");
 const { onExit } = require("./cliHelpers");
 
@@ -33,7 +35,7 @@ async function startClient(mode, opts = {}) {
     opts.name || process.env.DISPLAY_NAME || os.userInfo().username;
 
   logger.info(
-    `[client] Starting in ${mode} mode as "${sessionState.displayName}"`
+    `[client] Starting in ${mode} mode as "${sessionState.displayName}"`,
   );
   logger.info(`[client] Working directory: ${sessionState.baseDir}`);
 
@@ -47,6 +49,18 @@ async function startClient(mode, opts = {}) {
   const socket = await connectSocket(serverUrl, sessionState.displayName);
   sessionState.socket = socket;
 
+  // 🔁 Auto-rejoin room after reconnect (fixes large file disconnect issue)
+  socket.on("reconnect", () => {
+    logger.warn("[socket] Reconnected. Rejoining room...");
+
+    if (sessionState.sessionId) {
+      socket.emit("join-room", {
+        sessionId: sessionState.sessionId,
+        name: sessionState.displayName,
+      });
+    }
+  });
+
   if (mode === "start") {
     socket.emit("create-room", { name: sessionState.displayName }, (roomId) => {
       if (!roomId) {
@@ -59,8 +73,9 @@ async function startClient(mode, opts = {}) {
       sessionState.watcher = watchFiles(
         sessionState.baseDir,
         socket,
-        sessionState.sessionId
+        sessionState.sessionId,
       );
+      sendInitialFiles(sessionState.baseDir, socket, sessionState.sessionId);
     });
   } else if (mode === "join") {
     if (!opts.sessionId) {
@@ -82,30 +97,45 @@ async function startClient(mode, opts = {}) {
         sessionState.watcher = watchFiles(
           sessionState.baseDir,
           socket,
-          sessionState.sessionId
+          sessionState.sessionId,
         );
-      }
+      },
     );
   }
 
   // listen for initial snapshot
   socket.on("sync-snapshot", async ({ files }) => {
     logger.info(`[sync] Received initial snapshot with ${files.length} files`);
+
     for (const file of files) {
       const localPath = path.join(sessionState.baseDir, file.path);
-      await fs.promises.mkdir(path.dirname(localPath), { recursive: true });
 
-      if (file.type === "delete") {
+      // Handle directories
+      if (file.type === "addDir") {
+        await fs.promises.mkdir(localPath, { recursive: true });
+        continue;
+      }
+
+      // Handle deletions
+      if (file.type === "delete" || file.type === "unlink") {
         try {
           await fs.promises.unlink(localPath);
         } catch {}
-      } else {
-        await fs.promises.writeFile(
-          localPath,
-          Buffer.from(file.content, "base64")
-        );
+        continue;
+      }
+
+      // Handle normal files
+      if (file.content !== null && file.content !== undefined) {
+        const buffer = Buffer.from(file.content, "base64");
+
+        await fs.promises.mkdir(path.dirname(localPath), {
+          recursive: true,
+        });
+
+        await fs.promises.writeFile(localPath, buffer);
       }
     }
+
     logger.info("[sync] Snapshot applied. Now live sync begins.");
   });
 

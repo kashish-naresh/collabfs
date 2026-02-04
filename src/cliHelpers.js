@@ -1,3 +1,5 @@
+// client-cli/src/cliHelpers.js
+
 const { logger } = require("./utils/logger");
 
 function onExit(cleanup) {
@@ -14,7 +16,7 @@ function onExit(cleanup) {
 
 function showUsageHint() {
   logger.info(
-    'Tip: use `collab start -n "Name"` to create a session or `collab join <id>` to join one.'
+    'Tip: use `collab start -n "Name"` to create a session or `collab join <id>` to join one.',
   );
 }
 

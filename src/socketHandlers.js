@@ -1,5 +1,5 @@
 /**
- * socketHandlers.js
+ * client-cli/src/socketHandlers.js
  */
 const { v4: uuidv4 } = require("uuid");
 const rooms = new Map(); // sessionId -> { members: Set<socket.id>, files: Map }
