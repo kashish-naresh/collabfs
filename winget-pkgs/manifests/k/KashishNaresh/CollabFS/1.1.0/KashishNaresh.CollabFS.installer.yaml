@@ -11,8 +11,9 @@ Installers:
     Commands:
       - collab
     # Add silent install support:
-    Silent: /S
-    SilentWithProgress: /S
+    InstallerSwitches:
+      Silent: /S
+      SilentWithProgress: /S
 ManifestType: installer
 ManifestVersion: 1.10.0
 # Homepage: https://github.com/kashish-naresh/collabfs
